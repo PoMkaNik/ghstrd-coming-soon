@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Roboto:wght@400;500;700&display=swap');
+/* font-family: 'Lato', sans-serif;
+font-family: 'Roboto', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+/* font-family: 'Parisienne', cursive; */
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+p {
+  color: #888;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #e78200;
+}
+
+a:hover {
+  color: #debe96;
+}
+
+/* Dot navigation https://bootsnipp.com/snippets/ObXol */
+#dot-nav {
+  right: 10px;
+  top: 50%;
+  margin-top: -50px;
+  z-index: 999;
+  position: fixed;
+}
+
+#dot-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#dot-nav li {
+  position: relative;
+  background-color: #e4c79f;
+  border: 3px solid #e4c79f;
+  border-radius: 15px 15px 15px 15px;
+  cursor: pointer;
+  padding: 5px;
+  height: 10px;
+  margin: 10px 10px 0px 0px;
+  width: 10px;
+  vertical-align: bottom;
+}
+#dot-nav li.active,
+#dot-nav li:hover {
+  background-color: #e78200;
+}
+
+#dot-nav a {
+  outline: 0;
+  vertical-align: top;
+  margin: 0px 0px 0px 25px;
+  position: relative;
+  top: -5px;
+}
+
+.tooltip-inner {
+  background-color: #e78200;
+  color: #f5f5f5;
+  border: 1px solid #e78200;
+}
+
+.bs-tooltip-left .arrow::before,
+.bs-tooltip-auto[x-placement^='left'] .arrow::before {
+  border-left-color: #e78200;
+}
+
+#banner {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../img/banner-2.jpg');
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  color: #debe96;
+}
+
+#banner-content {
+  min-height: 100vh;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+@media (max-height: 850px) {
+  #banner-content {
+    padding-top: 3em;
+    padding-bottom: 3em;
+  }
+}
+
+@media (max-height: 576px) {
+  #banner-content {
+    padding-top: 0em;
+    padding-bottom: 0em;
+  }
+}
+
+#logo + h1 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+@media (max-width: 850px) {
+  #logo + h1 {
+    word-spacing: 100ch;
+  }
+}
+
+@media (min-width: 1000px) {
+  #logo + h1 {
+    font-size: 3em;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 999px) {
+  #logo + h1 {
+    font-size: 2em;
+  }
+}
+
+h1 > span {
+  color: white;
+  font-family: 'Parisienne', cursive;
+  text-transform: capitalize;
+  letter-spacing: 0.3em;
+  font-size: 2em;
+}
+
+ul.countdown li span {
+  font-size: 3em;
+}
+
+@media (max-width: 576px) {
+  ul.countdown li span {
+    font-size: 2em;
+  }
+}
