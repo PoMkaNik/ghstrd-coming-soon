@@ -10,7 +10,7 @@ body {
 }
 
 p {
-  color: #888;
+  color: #6c644b;
 }
 
 h1,
@@ -34,6 +34,7 @@ a:hover {
 }
 
 /* Dot navigation https://bootsnipp.com/snippets/ObXol */
+
 #dot-nav {
   right: 10px;
   top: 50%;
@@ -83,11 +84,14 @@ a:hover {
   border-left-color: #e78200;
 }
 
+/* BANNER */
+
 #banner {
   width: 100%;
   min-height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('../img/banner-2.jpg');
+  background-attachment: fixed;
   background-position-x: center;
   background-position-y: center;
   background-repeat: no-repeat;
@@ -103,19 +107,21 @@ a:hover {
   padding-bottom: 5em;
 }
 
-@media (max-height: 850px) {
+@media (max-height: 950px) {
   #banner-content {
     padding-top: 3em;
     padding-bottom: 3em;
   }
 }
 
-@media (max-height: 576px) {
+@media (max-height: 680px) {
   #banner-content {
     padding-top: 0em;
     padding-bottom: 0em;
   }
 }
+
+/* BANNER h1 */
 
 #logo + h1 {
   text-align: center;
@@ -135,9 +141,15 @@ a:hover {
   }
 }
 
-@media (min-width: 850px) and (max-width: 999px) {
+@media (max-width: 300px) {
   #logo + h1 {
     font-size: 2em;
+  }
+}
+
+@media (min-width: 849px) and (max-width: 999px) {
+  #logo + h1 {
+    font-size: 2.5em;
   }
 }
 
@@ -149,6 +161,16 @@ h1 > span {
   font-size: 2em;
 }
 
+/* COUNTDOWN */
+
+ul.countdown {
+  width: 85%;
+}
+
+ul.countdown li {
+  width: 25%;
+}
+
 ul.countdown li span {
   font-size: 3em;
 }
@@ -157,4 +179,161 @@ ul.countdown li span {
   ul.countdown li span {
     font-size: 2em;
   }
+}
+
+ul.countdown li p {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 576px) {
+  ul.countdown li p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 300px) {
+  ul.countdown li p {
+    font-size: 0.7em;
+  }
+}
+
+/* CONTENT */
+
+#content {
+  padding-top: 2em;
+  padding-bottom: 1em;
+}
+
+.content-block {
+  padding-bottom: 1em;
+}
+
+.content-block-left {
+  width: 25% !important;
+  justify-content: center;
+}
+
+.content-block-left svg {
+  font-size: 3em;
+  color: #743c04;
+}
+
+.content-block-left svg:hover {
+  color: #171008;
+  transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+  -webkit-transform: rotateY(360deg);
+  -o-transform: rotateY(360deg);
+}
+
+.content-block:hover,
+.content-block svg:hover {
+  transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+}
+
+@media (max-width: 386px) {
+  .content-block-left {
+    justify-content: start;
+  }
+}
+
+.content-block-right {
+  width: 75% !important;
+}
+
+.content-block-right p {
+  text-align: justify;
+}
+
+.content-block-right h3 {
+  padding-bottom: 0.5em;
+}
+
+.content-block-right h3 span {
+  color: #e78200;
+}
+
+/* SOCIAL */
+
+#social {
+  width: 100%;
+  min-height: 25vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../img/banner-2.jpg');
+  background-attachment: fixed;
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+.social-icons {
+  min-height: 25vh;
+}
+
+.social-icons li > a {
+  font-size: 3em;
+  color: #debe96;
+}
+
+.social-icons li:hover a {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 320px) {
+  .social-icons li > a {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .social-icons li > a {
+    font-size: 4em;
+  }
+}
+
+/* MISSION */
+
+#mission {
+  padding-top: 2em;
+  padding-bottom: 1em;
+}
+
+#mission h3 {
+  padding-bottom: 0.5em;
+}
+
+#mission h3 > span {
+  color: #e78200;
+}
+
+/* GALLERY WALL */
+
+#gallery {
+  padding: 1em 0;
+  width: 100vw;
+  min-height: 50vh;
+}
+
+#wall-gallery {
+  background: #000000;
+  max-height: 50vh;
+  min-height: 50vh;
+  overflow: hidden;
+  /* overflow: scroll; */
+}
+
+#wall-gallery .row {
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  flex-wrap: nowrap;
 }
