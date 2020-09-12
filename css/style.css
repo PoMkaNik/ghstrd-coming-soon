@@ -203,8 +203,7 @@ ul.countdown li p {
 /* CONTENT */
 
 #content {
-  padding-top: 2em;
-  padding-bottom: 1em;
+  padding: 2em 0 0 0;
 }
 
 .content-block {
@@ -303,8 +302,7 @@ ul.countdown li p {
 /* MISSION */
 
 #mission {
-  padding-top: 2em;
-  padding-bottom: 1em;
+  padding: 1em 0;
 }
 
 #mission h3 {
@@ -318,7 +316,7 @@ ul.countdown li p {
 /* GALLERY WALL */
 
 #gallery {
-  padding: 1em 0;
+  padding: 0 0 1em 0;
   width: 100vw;
   min-height: 50vh;
 }
@@ -328,7 +326,6 @@ ul.countdown li p {
   max-height: 50vh;
   min-height: 50vh;
   overflow: hidden;
-  /* overflow: scroll; */
 }
 
 #wall-gallery .row {
@@ -336,4 +333,45 @@ ul.countdown li p {
   padding: 0;
   justify-content: center;
   flex-wrap: nowrap;
+}
+
+/* CONTACT */
+
+#contact {
+  padding: 1em 0;
+}
+
+#contact h3 {
+  padding-bottom: 0.5em;
+}
+
+#contact h3 > span {
+  color: #e78200;
+}
+
+#contact form input[type='text'],
+#contact form input[type='email'] {
+  height: 3em;
+}
+
+#contact button {
+  margin-top: 0.5em;
+  background: #743c04;
+  color: white;
+  height: 2.6em;
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  letter-spacing: 0.3em;
+}
+
+#location {
+  padding: 1em 0;
+}
+
+#location h3 {
+  padding-bottom: 0.5em;
+}
+
+#location h3 > span {
+  color: #e78200;
 }

@@ -38,8 +38,8 @@
           >
             <a href="#mission"></a>
           </li>
-          <li data-toggle="tooltip" data-placement="left" title="Twitter">
-            <a href="#twitter"></a>
+          <li data-toggle="tooltip" data-placement="left" title="Gallery">
+            <a href="#gallery"></a>
           </li>
           <li data-toggle="tooltip" data-placement="left" title="Contact">
             <a href="#contact"></a>
@@ -158,91 +158,68 @@
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed est
             tenetur enim consequatur amet culpa modi corporis quam voluptatum
-            totam!
+            totam! Autem dicta eaque blanditiis possimus optio dolore maxime
+            quae, incidunt nostrum, modi animi excepturi pariatur quas laborum
+            quo consequuntur quidem!
           </p>
           <p>
             Autem dicta eaque blanditiis possimus optio dolore maxime quae,
             incidunt nostrum, modi animi excepturi pariatur quas laborum quo
-            consequuntur quidem!
+            consequuntur quidem! Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Sed est tenetur enim consequatur amet culpa modi
+            corporis quam voluptatum totam!
           </p>
         </div>
       </section>
       <section id="gallery" class="container-fluid">
         <div id="wall-gallery"></div>
       </section>
-      <section id="twitter">
-        <div class="twitter-bg-overlay">
-          <div class="container-fluid">
+      <section id="contact">
+        <div class="container">
+          <h3>Contact <span>me</span></h3>
+          <form action="" id="contact-form" >
             <div class="row">
-              <div class="col-md-6 offset-md-3">
-                <div class="twitter-icon">
-                  <i class="fab fa-twitter"></i>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    class="form-control"
+                    id="name"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    class="form-control"
+                    id="email"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    name="message"
+                    placeholder="Your message"
+                  ></textarea>
+                  <button
+                    type="submit"
+                    class="btn btn-block pt-1 contact"
+                  >
+                    SEND MESSAGE
+                  </button>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </section>
-      <section id="contact">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-8">
-              <form action="" id="contact-form">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <input
-                        type="text"
-                        placeholder="Name"
-                        class="form-control"
-                        id="name"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        class="form-control"
-                        id="email"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <input
-                        type="text"
-                        placeholder="Name"
-                        class="form-control"
-                        id="name"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <textarea
-                        class="form-control"
-                        id="message"
-                        name="message"
-                        placeholder="Your message"
-                      ></textarea>
-                      <button
-                        type="submit"
-                        class="btn btn-success btn-block pt-1 contact"
-                      >
-                        SEND MESSAGE
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="col-md-4">
-              <address>
-                <strong>Twitter, Inc.</strong><br />
-                1355 Market St, Suite 900<br />
-                San Francisco, CA 94103<br />
-                <abbr title="Phone">P:</abbr> (123) 456-7890
-              </address>
-            </div>
-          </div>
+      <section id="location">
+        <div class="container">
+          <h3>GHSTRD <span>Location</span></h3>
         </div>
       </section>
     </main>

@@ -63,10 +63,10 @@ $(document).ready(function () {
 
 // Gallery Wall
 // user settings
-const wallImgFolderPath = 'img/wall/'; // provide path to images for Wall Gallery
+const wallImgFolderPath = 'img/wall/resized/'; // provide path to resized images for Wall Gallery
 const wallImgExtension = '.jpg';
-const numberOfImgInWallFolder = 20; // Max Number images in 'img/wall' folder
-const maxImgHeight = 100; // will affect number of rows and actual height
+const numberOfImgInWallFolder = 45; // number of images in wallImgFolderPath
+const maxImgHeight = 100; // will effect on number of rows and actual height
 
 let counter = 1;
 let rowWidth = 0;
@@ -80,8 +80,10 @@ function initWallGallery() {
   createWallGallery();
 }
 
-function createWallGalleryRow () {
-  $('#wall-gallery').append($('<div></div>').addClass('row justify-content-center'));
+function createWallGalleryRow() {
+  $('#wall-gallery').append(
+    $('<div></div>').addClass('row justify-content-center'),
+  );
 }
 
 function createWallGallery() {
@@ -90,7 +92,7 @@ function createWallGallery() {
   const wallGalleryDivHeight = wallGalleryDiv.height();
   const wallGalleryDivWidth = wallGalleryDiv.width();
 
-  //one row if cant handle 2*maxImgHeight or calculated based on wallGalleryDivHeight
+  //one row if wallGalleryDiv cant handle 2*maxImgHeight or calculated based on wallGalleryDivHeight
   let numberOfRows;
   if (wallGalleryDivHeight < maxImgHeight * 2) {
     numberOfRows = 1;
@@ -101,7 +103,6 @@ function createWallGallery() {
   const galleryImgHeight = Math.round(wallGalleryDivHeight / numberOfRows, 0);
 
   const img = new Image();
-  img.src = wallImgFolderPath + counter + wallImgExtension;
 
   img.onload = function () {
     const sizeRatio = this.width / this.height;
@@ -124,7 +125,7 @@ function createWallGallery() {
           .children()
           .last()
           .append($(img).height(`${galleryImgHeight}px`));
-        // after need to add new row
+        // then need to add new row
         // check if new row can be created
         if (rowsCreated < numberOfRows) {
           createWallGalleryRow();
@@ -138,15 +139,32 @@ function createWallGallery() {
       }
     } else {
       //exit loop
-      console.log('Noe enough images in Wall folder!')
-      // TODO we can decrease height based on actual number on images processed
-      // and rows created or recalculate galleryImageHeight to fill all space
-      // or we can process before all images to get actual row count and than 
+      console.log('Not enough images in Wall folder!');
+      // TODO we can decrease height based on actual number of images processed
+      // and rows created
+      console.log(galleryImgHeight);
+      wallGalleryDiv.attr(
+        'style',
+        `min-height:${rowsCreated * galleryImgHeight}px; max-height:${
+          rowsCreated * galleryImgHeight
+        }px`,
+      );
+      $('#gallery').attr(
+        'style',
+        `min-height:${rowsCreated * galleryImgHeight}px;`,
+      );
+      // or change height on actual row number -1
+
+      // or recalculate galleryImageHeight to fill all space
+
+      // or we can process before all images to get actual row count and than
       // run actual creation of images in gallery based on the test performed
 
       // functionToContinueWith();
     }
   };
+
+  img.src = wallImgFolderPath + counter + wallImgExtension;
 }
 
 function resetWallGallery() {
