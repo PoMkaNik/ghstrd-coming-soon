@@ -178,6 +178,48 @@ function resetWallGallery() {
   counter = 1;
 }
 
+// Google Static Map
+// dynamic map
+const mapStyle = style; // from https://mapstyle.withgoogle.com/
+const mapDiv = document.getElementById('map');
+
+const mapSettings = {
+  center: { lat: 27.5, lng: -85.5 },
+  zoom: 5,
+  maptype: 'roadmap',
+  disableDefaultUI: true,
+};
+
+const myLocations = [
+  {
+    name: 'Miami, FL',
+    lat: 25.761681,
+    lng: -80.191788,
+    color: 'blue',
+    // iconUrl: 'http://tinyurl.com/jrhlvu6',
+  },
+];
+
+function initMap() {
+  // create map based on settings and style
+  const map = new google.maps.Map(mapDiv, {
+    center: mapSettings.center,
+    zoom: mapSettings.zoom,
+    mapTypeId: mapSettings.maptype,
+    styles: mapStyle,
+    disableDefaultUI: mapSettings.disableDefaultUI,
+  });
+  // put markers on the map
+  myLocations.forEach((marker, i) => {
+    let markerPosition = {
+      lat: marker.lat,
+      lng: marker.lng,
+    };
+    new google.maps.Marker({ position: markerPosition, map: map });
+  });
+}
+
+// init image Wall Gallery
 $(document).ready(function () {
   initWallGallery();
 });

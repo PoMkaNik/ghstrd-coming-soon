@@ -84,6 +84,29 @@ a:hover {
   border-left-color: #e78200;
 }
 
+/* Blinking Arrow */
+#arrow svg {
+  color: white;
+  margin: 83vh auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 7em;
+  z-index: 3;
+  animation: blink 2s infinite; /* Параметры анимации */
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 /* BANNER */
 
 #banner {
@@ -322,7 +345,6 @@ ul.countdown li p {
 }
 
 #wall-gallery {
-  background: #000000;
   max-height: 50vh;
   min-height: 50vh;
   overflow: hidden;
@@ -374,4 +396,13 @@ ul.countdown li p {
 
 #location h3 > span {
   color: #e78200;
+}
+
+#map {
+  margin: 0;
+  min-height: 40vh;
+}
+
+footer {
+  padding: 1em 0;
 }
