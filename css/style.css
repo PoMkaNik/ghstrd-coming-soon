@@ -112,16 +112,21 @@ a:hover {
 #banner {
   width: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../img/banner-2.jpg');
-  background-attachment: fixed;
-  background-position-x: center;
-  background-position-y: center;
-  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   position: relative;
   color: #debe96;
+  background-image: url('../img/banner-2-50.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (max-device-width: 1366px) {
+  #banner {
+    background-attachment: scroll;
+  }
 }
 
 #banner-content {
@@ -288,12 +293,17 @@ ul.countdown li p {
 #social {
   width: 100%;
   min-height: 25vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../img/banner-2.jpg');
+  background-image: url('../img/banner-2-50.jpg');
   background-attachment: fixed;
-  background-position-x: center;
-  background-position-y: center;
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (max-device-width: 1366px) {
+  #social {
+    background-attachment: scroll;
+  }
 }
 
 .social-icons {

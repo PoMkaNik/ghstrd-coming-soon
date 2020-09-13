@@ -224,17 +224,17 @@ $(document).ready(function () {
   initWallGallery();
 });
 
-$(window).bind('resizeEnd', function () {
-  //do something, window hasn't changed size in 500ms
-  // reset gallery
-  resetWallGallery();
-  // new initiation of gallery
-  initWallGallery();
-});
+// $(window).bind('resizeEnd', function () {
+//   //do something, window hasn't changed size in 500ms
+//   // reset gallery
+//   resetWallGallery();
+//   // new initiation of gallery
+//   initWallGallery();
+// });
 
-$(window).resize(function () {
-  if (this.resizeTO) clearTimeout(this.resizeTO);
-  this.resizeTO = setTimeout(function () {
-    $(this).trigger('resizeEnd');
-  }, 500);
-});
+// $(window).resize(function () {
+//   if (this.resizeTO) clearTimeout(this.resizeTO);
+//   this.resizeTO = setTimeout(function () {
+//     $(this).trigger('resizeEnd');
+//   }, 500);
+// });
