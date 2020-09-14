@@ -83,7 +83,7 @@ function initWallGallery() {
 function createWallGalleryRow() {
   $('#wall-gallery').append(
     $('<div></div>').addClass('row justify-content-center'),
-  );
+    );
 }
 
 function createWallGallery() {
@@ -92,7 +92,8 @@ function createWallGallery() {
   const wallGalleryDivHeight = wallGalleryDiv.height();
   const wallGalleryDivWidth = wallGalleryDiv.width();
 
-  //one row if wallGalleryDiv cant handle 2*maxImgHeight or calculated based on wallGalleryDivHeight
+  // one row if wallGalleryDiv cant handle 2*maxImgHeight
+  // or calculated based on wallGalleryDivHeight
   let numberOfRows;
   if (wallGalleryDivHeight < maxImgHeight * 2) {
     numberOfRows = 1;
@@ -108,28 +109,20 @@ function createWallGallery() {
     const sizeRatio = this.width / this.height;
     const calculatedImgWidth = Math.round(galleryImgHeight * sizeRatio, 0);
     rowWidth += calculatedImgWidth;
-    counter++;
-
-    if (counter < numberOfImgInWallFolder) {
+    
+    if (counter <= numberOfImgInWallFolder) {
       if (rowWidth < wallGalleryDivWidth) {
         // create img in #wall-gallery
-        wallGalleryDiv
-          .children()
-          .last()
-          .append($(img).height(`${galleryImgHeight}px`));
+        addImgToDOM (wallGalleryDiv, img, galleryImgHeight) 
         //go to next loop iteration
         createWallGallery();
       } else {
-        // add one more img in row to fill all the height
-        wallGalleryDiv
-          .children()
-          .last()
-          .append($(img).height(`${galleryImgHeight}px`));
-        // then need to add new row
+        // add one more img in row to fill all the row width
+        addImgToDOM (wallGalleryDiv, img, galleryImgHeight) 
         // check if new row can be created
         if (rowsCreated < numberOfRows) {
+          // create one more row
           createWallGalleryRow();
-          // increase number of rowsCreated
           rowsCreated++;
           // reset rowWidth
           rowWidth = 0;
@@ -138,44 +131,49 @@ function createWallGallery() {
         }
       }
     } else {
-      //exit loop
-      console.log('Not enough images in Wall folder!');
-      // TODO we can decrease height based on actual number of images processed
-      // and rows created
-      console.log(galleryImgHeight);
-      wallGalleryDiv.attr(
-        'style',
-        `min-height:${rowsCreated * galleryImgHeight}px; max-height:${
-          rowsCreated * galleryImgHeight
-        }px`,
-      );
-      $('#gallery').attr(
-        'style',
-        `min-height:${rowsCreated * galleryImgHeight}px;`,
-      );
-      // or change height on actual row number -1
+      // exit loop
+      // decrease number of rows to show if images are not enough =>
+      // last row is not fulfilled
+      const rowsToShow = rowsCreated - 1;
+      setFinalGalleryHeight(wallGalleryDiv, rowsToShow, galleryImgHeight);  
+      }
+    };
+    
+    img.src = wallImgFolderPath + counter + wallImgExtension;
+    counter++;
+}
 
-      // or recalculate galleryImageHeight to fill all space
+function addImgToDOM (wallGalleryDiv, img, galleryImgHeight) {
+  wallGalleryDiv
+        .children()
+        .last()
+        .append($(img).height(`${galleryImgHeight}px`));
+}
 
-      // or we can process before all images to get actual row count and than
-      // run actual creation of images in gallery based on the test performed
-
-      // functionToContinueWith();
-    }
-  };
-
-  img.src = wallImgFolderPath + counter + wallImgExtension;
+function setFinalGalleryHeight (wallGalleryDiv, rowsToShow, galleryImgHeight) {
+  wallGalleryDiv.attr(
+    'style',
+    `min-height:${rowsToShow * galleryImgHeight}px; max-height:${
+      rowsToShow * galleryImgHeight
+    }px`,
+    );
+  $('#gallery').attr(
+    'style',
+    `min-height:${rowsToShow * galleryImgHeight}px; max-height:${
+      rowsToShow * galleryImgHeight
+    }px`,
+  );
 }
 
 function resetWallGallery() {
   // remove 'old' rows
   $('#wall-gallery').children().remove();
-  // reset rowsCreated
-  rowsCreated = 1;
-  // reset rowWidth
-  rowWidth = 0;
   // reset counter
   counter = 1;
+  // reset rowWidth
+  rowWidth = 0;
+  // reset rowsCreated
+  rowsCreated = 1;
 }
 
 // Google Static Map
